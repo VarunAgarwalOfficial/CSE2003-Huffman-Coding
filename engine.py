@@ -24,6 +24,28 @@ class huffman:
 
 
 
+    def get_encrypted(self , iden):
+        txt = ""
+        for x in self.text:
+            txt += iden[x]
+        return txt
+
+    def get_identifiers(self , tree):
+        arr = []
+        res = {}
+        def helper(node):
+            if node.ch:
+                res[node.ch]  = "".join(arr[:])
+                return
+            arr.append('0')
+            helper(node.left)
+            arr.pop()
+            arr.append('1')
+            helper(node.right)
+            arr.pop()
+        helper(tree)
+        return res
+
 
 
 
@@ -59,8 +81,10 @@ class huffman:
 
     def encode(self):
         freq = self.get_freq(self.text)
-        self.make_tree(freq)
-        
+        tree = self.make_tree(freq)
+        iden = self.get_identifiers(tree)
+        encrypted = self.get_encrypted(iden)
+        print(encrypted)
 
 
 
