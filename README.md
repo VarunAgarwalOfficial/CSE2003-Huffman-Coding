@@ -1,32 +1,31 @@
-# Huffman Coding Project
+# Huffman Coding in Python
 
-## Overview
+A small Python implementation of Huffman coding. It reads a text file, counts how often each character appears, builds a Huffman tree and prints the input encoded as a string of 0s and 1s.
 
-This project is an implementation of Huffman coding in Python, developed as part of the CSE2003 Data Structures and Algorithms course during the first year (2019) at VIT, Vellore. Huffman coding is a popular algorithm for lossless data compression, widely used in various applications.
+## Why it is interesting
 
-## Table of Contents
+- The tree is built greedily: the two least frequent nodes are repeatedly merged into a parent whose frequency is their sum, so frequent characters end up near the root and get shorter codes.
+- Codes are read off the tree with a recursive walk that appends `0` for a left branch and `1` for a right branch, which shows why the result is a prefix-free code.
+- It is deliberately simple: the queue is a list re-sorted after each merge (a hand-written O(n²) sort) rather than a heap, and it only encodes. There is no decoder and the output is a printed bit string, not a packed file.
 
-- [Description](#description)
-- [Usage](#usage)
-- [Features](#features)
-- [Implementation Details](#implementation-details)
+## Run it
 
+No dependencies beyond Python 3.
 
-## Description
+```bash
+python engine.py
+```
 
-Huffman coding is a greedy algorithm used for lossless data compression. It assigns variable-length codes to input characters, with shorter codes assigned to more frequent characters. This project demonstrates the implementation of Huffman coding in Python, showcasing its efficiency in compressing data.
+`engine.py` reads `text.txt` from the current directory, prints each character with its frequency, then prints the encoded bit string. Edit `text.txt` to try other input.
 
-## Usage
+## Tech
 
-This project is intended for educational purposes and provides a simple implementation of Huffman coding. You can use it as a reference for understanding the algorithm and its application in data compression.
+Python 3, standard library only.
 
-## Features
+## Context
 
-- Implementation of Huffman coding algorithm.
-- Compression and decompression of data using Huffman codes.
+VIT coursework, CSE2003 Data Structures and Algorithms, J component, group project, Fall 2020. The original submission was written in C; this repository holds the Python version. A later rewrite in Rust: https://github.com/VarunAgarwalOfficial/huffman
 
-## Implementation Details
+## License
 
-The project is implemented in Python, leveraging its simplicity and readability. 
-
-
+Group coursework; no licence has been added.
