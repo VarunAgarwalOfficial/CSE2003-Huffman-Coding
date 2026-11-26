@@ -1,5 +1,7 @@
 # Huffman Coding in Python
 
+> **Archived.** Superseded by [huffman](https://github.com/VarunAgarwalOfficial/huffman), the Rust rewrite that compresses arbitrary files. This repository is kept as a record and is read-only.
+
 A small Python implementation of Huffman coding. It reads a text file, counts how often each character appears, builds a Huffman tree and prints the input encoded as a string of 0s and 1s.
 
 ## Why it is interesting
@@ -28,4 +30,4 @@ VIT coursework, CSE2003 Data Structures and Algorithms, J component, group proje
 
 ## License
 
-Group coursework; no licence has been added.
+MIT, see LICENSE. This is the Python version; the group's original C submission is not included.
